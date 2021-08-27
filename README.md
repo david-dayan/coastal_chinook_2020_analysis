@@ -6,10 +6,10 @@ This is the parent repository for all 2020 Oregon Coast Chinook analyses.
 Several notebooks and directories are contained here.  
 
 ### Directories:  
-__(1) ~/run_genotyping:__ individual illumina run genotyping information  
-  __(a) run 018:__  
-  __(b) run 021:__  
-  __(c) run 025:__  
+* __(1) ~/run_genotyping:__ individual illumina run genotyping information  
+  * __(a) run 018:__  
+  * __(b) run 021:__  
+  * __(c) run 025:__  
 
 __(2) ~/project_genotyping:__ combining previously genotyped runs into a single dataset  
 
