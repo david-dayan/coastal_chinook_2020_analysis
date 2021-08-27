@@ -1,0 +1,58 @@
+Pedigree,Individual Name,FieldID1,SamplerName,IndividualSampleLOCATION,ReachID,DateSampled,SurveyorID,SpeciesID,Gender,MEPS,LengthMEPS,Marks,CommentsSpawn,ScaleNumber,SnoutID,COMMENTSGeneral
+OtsCC20SILR,OtsCC20SILR_0001,136,Corvallis North,Siletz,25159.00 Seg 1,11/21/2020,32,17,F,670,67,0 - None,0 - No,39606,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0002,137,Corvallis North,Siletz,25159.00 Seg 1,11/21/2020,32,17,F,690,69,0 - None,0 - No,39607,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0003,138,Corvallis North,Siletz,25159.00 Seg 1,11/21/2020,32,17,M,730,73,0 - None,,39608,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0004,139,Corvallis North,Siletz,25159.00 Seg 1,11/21/2020,32,17,F,745,74.5,0 - None,0 - No,39609,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0005,140,Corvallis North,Siletz,25102.50 Seg 1,11/23/2020,32,17,F,725,72.5,0 - None,0 - No,39613,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0006,141,Corvallis North,Siletz,25102.50 Seg 1,11/23/2020,32,17,M,590,59,0 - None,,39614,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0007,142,Corvallis North,Siletz,25159.00 Seg 1,12/1/2020,32,17,F,785,78.5,0 - None,0 - No,39616,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0008,143,Corvallis North,Siletz,25159.00 Seg 1,12/1/2020,32,17,F,710,71,0 - None,0 - No,39617,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0009,144,Corvallis North,Siletz,25159.00 Seg 1,12/1/2020,32,17,F,750,75,0 - None,0 - No,39618,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0010,145,Corvallis North,Siletz,25159.00 Seg 1,12/1/2020,32,17,F,670,67,0 - None,0 - No,39619,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0011,146,Corvallis North,Siletz,25159.00 Seg 1,12/1/2020,32,17,M,735,73.5,0 - None,,39620,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0012,147,Corvallis North,Siletz,25159.00 Seg 1,12/1/2020,32,17,M,760,76,0 - None,,39621,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0013,148,Corvallis North,Siletz,25102.50 Seg 1,12/3/2020,32,17,M,620,62,0 - None,,39628,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0014,149,Corvallis North,Siletz,25102.50 Seg 1,12/3/2020,32,17,F,600,60,0 - None,0 - No,39629,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0015,150,Corvallis North,Siletz,25102.50 Seg 1,12/3/2020,32,17,F,590,59,0 - None,0 - No,39630,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0016,151,Corvallis North,Siletz,25102.50 Seg 1,12/3/2020,32,17,F,705,70.5,0 - None,0 - No,39633,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0017,152,Corvallis North,Siletz,25167.00 Seg 2,12/8/2020,32,17,F,740,74,0 - None,0 - No,39634,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0018,154,Corvallis North,Siletz,25167.00 Seg 2,12/8/2020,32,17,M,740,74,0 - None,,39636,,
+OtsCC20SILR,OtsCC20SILR_0019,155,Corvallis North,Siletz,25167.00 Seg 2,12/8/2020,32,17,F,670,67,0 - None,0 - No,39638,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0020,196,Corvallis North,Siletz,25102.50 Seg 1,12/10/2020,5,17,M,440,44,0 - None,,15897,,Jack. DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0021,197,Corvallis North,Siletz,25102.50 Seg 1,12/10/2020,5,17,F,660,66,0 - None,0 - No,15895,,DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0022,198,Corvallis North,Siletz,25102.50 Seg 1,12/3/2020,5,17,F,700,70,0 - None,0 - No,15874,,Scales not from key area and from only right side. DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0023,199,Corvallis North,Siletz,25102.50 Seg 1,12/10/2020,5,17,F,685,68.5,0 - None,0 - No,15896,,Scales from only on side. DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0024,201,Corvallis North,Siletz,25102.50 Seg 1,12/3/2020,5,17,M,770,77,0 - None,,15876,,DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0025,202,Corvallis North,Siletz,25102.50 Seg 1,12/3/2020,5,17,M,770,77,0 - None,,15873,,DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0026,206,Corvallis North,Siletz,25102.50 Seg 1,12/10/2020,5,17,F,730,73,0 - None,0 - No,15892,,DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0027,207,Corvallis North,Siletz,25102.50 Seg 1,12/3/2020,5,17,F,730,73,0 - None,0 - No,15877,,DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0028,208,Corvallis North,Siletz,25102.50 Seg 1,10/8/2020,5,17,F,600,60,2 - Adipose,0 - No,15863,8650,Carcass was not fresh. Already rotting. DNAFin - Dorsal
+OtsCC20SILR,OtsCC20SILR_0029,209,Corvallis North,Siletz,25102.50 Seg 1,12/10/2020,5,17,F,665,66.5,0 - None,0 - No,15891,,DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0030,212,Corvallis North,Siletz,25102.50 Seg 1,12/10/2020,5,17,M,710,71,0 - None,,15890,,DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0031,213,Corvallis North,Siletz,25102.50 Seg 1,12/10/2020,5,17,M,700,70,0 - None,,15888,,DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0032,336,Corvallis North,Siletz,25159.00 Seg 1,11/21/2020,46,17,F,716,71.6,0 - None,0 - No,39695,,DNAFin - Dorsal
+OtsCC20SILR,OtsCC20SILR_0033,337,Corvallis North,Siletz,25167.00 Seg 2,11/21/2020,46,17,F,740,74,0 - None,0 - No,39703,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0034,338,Corvallis North,Siletz,25102.50 Seg 1,11/9/2020,46,17,F,700,70,0 - None,"1 - Yes, >50% eggs remain",39706,,DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0035,339,Corvallis North,Siletz,25167.00 Seg 2,11/21/2020,46,17,F,665,66.5,0 - None,0 - No,39701,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0036,340,Corvallis North,Siletz,25167.00 Seg 2,11/21/2020,46,17,M,710,71,0 - None,,39653,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0037,341,Corvallis North,Siletz,25167.00 Seg 2,11/21/2020,46,17,F,744,74.4,0 - None,0 - No,39700,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0038,342,Corvallis North,Siletz,25159.00 Seg 1,11/21/2020,46,17,F,675,67.5,2 - Adipose,0 - No,39698,8671,DNAFin - Dorsal
+OtsCC20SILR,OtsCC20SILR_0039,343,Corvallis North,Siletz,25167.00 Seg 2,11/21/2020,46,17,M,712,71.2,0 - None,,39666,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0040,344,Corvallis North,Siletz,25159.00 Seg 1,11/21/2020,46,17,F,665,66.5,0 - None,0 - No,39696,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0041,345,Corvallis North,Siletz,25102.50 Seg 1,11/23/2020,46,17,M,676,67.6,0 - None,,39694,,
+OtsCC20SILR,OtsCC20SILR_0042,346,Corvallis North,Siletz,25167.00 Seg 2,12/1/2020,46,17,F,700,70,0 - None,0 - No,39693,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0043,347,Corvallis North,Siletz,25167.00 Seg 2,11/21/2020,46,17,M,785,78.5,0 - None,,39702,,
+OtsCC20SILR,OtsCC20SILR_0044,348,Corvallis North,Siletz,25159.00 Seg 1,11/4/2020,46,17,F,745,74.5,0 - None,0 - No,39708,,DNAFin - Pelvic
+OtsCC20SILR,OtsCC20SILR_0045,349,Corvallis North,Siletz,25167.00 Seg 2,11/21/2020,46,17,M,695,69.5,0 - None,,39654,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0046,350,Corvallis North,Siletz,25159.00 Seg 1,11/21/2020,46,17,F,760,76,0 - None,0 - No,39697,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0047,352,Corvallis North,Siletz,25167.00 Seg 2,11/21/2020,46,17,F,720,72,0 - None,0 - No,39699,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0048,353,Corvallis North,Siletz,25159.00 Seg 1,11/10/2020,46,17,M,515,51.5,0 - None,,39705,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0049,354,Corvallis North,Siletz,25167.00 Seg 2,12/1/2020,46,17,M,636,63.6,0 - None,,39692,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0050,355,Corvallis North,Siletz,25167.00 Seg 2,11/21/2020,46,17,F,798,79.8,0 - None,0 - No,39652,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0051,408,Corvallis North,Siletz,25167.00 Seg 2,12/8/2020,46,17,M,735,73.5,0 - None,,39682,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0052,409,Corvallis North,Siletz,25167.00 Seg 2,12/1/2020,46,17,M,820,82,0 - None,,39690,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0053,418,Corvallis North,Siletz,25167.00 Seg 2,12/8/2020,46,17,M,796,79.6,0 - None,,39684,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0054,419,Corvallis North,Siletz,25167.00 Seg 2,12/1/2020,46,17,F,748,74.8,0 - None,0 - No,39691,,DNAFin - Pectoral
+OtsCC20SILR,OtsCC20SILR_0055,421,Corvallis North,Siletz,25167.00 Seg 2,12/8/2020,32,17,F,665,66.5,0 - None,0 - No,39639,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0056,422,Corvallis North,Siletz,25102.50 Seg 1,12/10/2020,32,17,M,705,70.5,0 - None,,39643,,DNAFin - Adipose
+OtsCC20SILR,OtsCC20SILR_0057,423,Corvallis North,Siletz,25102.50 Seg 1,12/10/2020,32,17,F,580,58,0 - None,0 - No,39644,,DNAFin - Pectoral

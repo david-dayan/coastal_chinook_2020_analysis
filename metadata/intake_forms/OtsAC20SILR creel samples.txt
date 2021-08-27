@@ -1,0 +1,101 @@
+Individual Name	DateSampled	Stream	SpeciesID	HarvestCard	Gender	JackorJill?	ForkLen	LengthFork1	Marks	ScaleNumber	DNAId	IndividualSampleLocation	IndividualLat	IndividualLong	SampleMethod	WildorHat?
+OtsAC20SILR_1101	02-Oct-20	Siletz	17	ELS	F		800	80	0 - no clips	6184	1001	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1002	02-Oct-20	Siletz	17	ELS	F		760	76	0 - no clips	6185	1002	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1003	02-Oct-20	Siletz	17	Paper	M		725	72.5	0 - no clips	6186	1003	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1004	02-Oct-20	Siletz	17	Paper	M		715	71.5	0 - no clips	6187	1004	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1005	02-Oct-20	Siletz	17	ELS	M		815	81.5	0 - no clips	6188	1005	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1006	03-Oct-20	Siletz	17	Paper	F		815	81.5	0 - no clips	6189	1006	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1007	03-Oct-20	Siletz	17	ELS	F		810	81	0 - no clips	6190	1007	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1008	03-Oct-20	Siletz	17	ELS	M		825	82.5	0 - no clips	6191	1008	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1009	03-Oct-20	Siletz	17	Paper	F		695	69.5	0 - no clips	6192	1009	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1010	03-Oct-20	Siletz	17	ELS	M		695	69.5	0 - no clips	6193	1010	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1011	03-Oct-20	Siletz	17	Paper	M		835	83.5	0 - no clips	6194	1011	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1012	06-Oct-20	Siletz	17	Paper	F		770	77	0 - no clips	6195	1012	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1013	06-Oct-20	Siletz	17	Paper	M		820	82	0 - no clips	6196	1013	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1014	06-Oct-20	Siletz	17	Paper	M		950	95	0 - no clips	6197	1014	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1015	06-Oct-20	Siletz	17	ELS	M		700	70	0 - no clips	6198	1015	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1016	06-Oct-20	Siletz	17	ELS	F		810	81	0 - no clips	6199	1016	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1017	06-Oct-20	Siletz	17	ELS	F		820	82	0 - no clips	6300	1017	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1018	06-Oct-20	Siletz	17	Paper	M		830	83	0 - no clips	6301	1018	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1019	07-Oct-20	Siletz	17	ELS	M		720	72	0 - no clips	6302	1019	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1020	07-Oct-20	Siletz	17	ELS	M		730	73	0 - no clips	6303	1020	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1021	07-Oct-20	Siletz	17	ELS	F		750	75	0 - no clips	6304	1021	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1022	07-Oct-20	Siletz	17	ELS	M		755	75.5	0 - no clips	6305	1022	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1023	07-Oct-20	Siletz	17	ELS	F		660	66	0 - no clips	6306	1023	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1024	07-Oct-20	Siletz	17	NA	M	Y	390	39	0 - no clips	6307	1024	Ichwhit Paper	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1025	07-Oct-20	Siletz	17	ELS	M		770	77	0 - no clips	6308	1025	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1026	08-Oct-20	Siletz	17	ELS	F		665	66.5	0 - no clips	6309	1026	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1027	08-Oct-20	Siletz	17	Paper	M		810	81	0 - no clips	6310	1027	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1028	09-Oct-20	Siletz	17	ELS	F		810	81	0 - no clips	6311	1028	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1029	09-Oct-20	Siletz	17	Paper	M		780	78	0 - no clips	6312	1029	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1030	09-Oct-20	Siletz	17	Paper	M		660	66	0 - no clips	6313	1030	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1031	10-Oct-20	Siletz	17	ELS	M		820	82	0 - no clips	6314	1031	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1032	10-Oct-20	Siletz	17	ELS	M		615	61.5	0 - no clips	6315	1032	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1033	13-Oct-20	Siletz	17	Paper	F		815	81.5	0 - no clips	6316	1033	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1034	13-Oct-20	Siletz	17	Paper	M		760	76	0 - no clips	6317	1034	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1035	13-Oct-20	Siletz	17	Paper	F		710	71	0 - no clips	6318	1035	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1036	13-Oct-20	Siletz	17	ELS	F		780	78	0 - no clips	6319	1036	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1037	14-Oct-20	Siletz	17	ELS	M		805	80.5	0 - no clips	6320	1037	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1038	14-Oct-20	Siletz	17	ELS	F		760	76	0 - no clips	6321	1038	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1039	14-Oct-20	Siletz	17	Paper	M		800	80	0 - no clips	6322	1039	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1040	14-Oct-20	Siletz	17	ELS	F		730	73	0 - no clips	6323	1040	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1041	14-Oct-20	Siletz	17	ELS	M		905	90.5	0 - no clips	6324	1041	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1042	14-Oct-20	Siletz	17	Paper	M		810	81	0 - no clips	6325	1042	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1043	14-Oct-20	Siletz	17	ELS	F		730	73	0 - no clips	6326	1043	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1044	14-Oct-20	Siletz	17	ELS	M		770	77	0 - no clips	6327	1044	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1045	15-Oct-20	Siletz	17	ELS	F		745	74.5	0 - no clips	6328	1045	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1046	15-Oct-20	Siletz	17	ELS	M		825	82.5	0 - no clips	6329	1046	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1047	15-Oct-20	Siletz	17	ELS	M		830	83	0 - no clips	6330	1047	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1048	15-Oct-20	Siletz	17	ELS	M		645	64.5	0 - no clips	6331	1048	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1049	15-Oct-20	Siletz	17	ELS	F		930	93	0 - no clips	6332	1049	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1050	15-Oct-20	Siletz	17	ELS	M		680	68	0 - no clips	6333	1050	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1051	02-Oct-20	Siletz	17	NA	M	Y	420	42	0 - no clips	6246	1051	Chinook Bend 	44.8793	-123.9630	Creel	NOR
+OtsAC20SILR_1052	02-Oct-20	Siletz	17	ELS	F		745	74.5	0 - no clips	6247	1052	Chinook Bend 	44.8793	-123.9630	Creel	NOR
+OtsAC20SILR_1053	02-Oct-20	Siletz	17	Paper	F		855	85.5	0 - no clips	6248	1053	Coyote Rock 	44.8810	-123.9790	Creel	NOR
+OtsAC20SILR_1054	02-Oct-20	Siletz	17	Paper	M		950	95	2 - adipose clip	6249	1054	Coyote Rock 	44.8810	-123.9790	Creel	HOR
+OtsAC20SILR_1055	02-Oct-20	Siletz	17	Paper	F		840	84	2 - adipose clip	6250	1055	Coyote Rock 	44.8810	-123.9790	Creel	HOR
+OtsAC20SILR_1056	02-Oct-20	Siletz	17	Paper	M		865	86.5	0 - no clips	6251	1056	Coyote Rock 	44.8810	-123.9790	Creel	NOR
+OtsAC20SILR_1057	02-Oct-20	Siletz	17	Paper	F		795	79.5	0 - no clips	6252	1057	Chinook Bend 	44.8793	-123.9630	Creel	NOR
+OtsAC20SILR_1058	03-Oct-20	Siletz	17	Paper	F		890	89	0 - no clips	6253	1058	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1059	03-Oct-20	Siletz	17	Paper	F		800	80	0 - no clips	6254	1059	Coyote Rock 	44.8810	-123.9790	Creel	NOR
+OtsAC20SILR_1060	03-Oct-20	Siletz	17	Paper	M		715	71.5	0 - no clips	6255	1060	Coyote Rock 	44.8810	-123.9790	Creel	NOR
+OtsAC20SILR_1061	03-Oct-20	Siletz	17	Paper	M		895	89.5	0 - no clips	6256	1061	Coyote Rock 	44.8810	-123.9790	Creel	NOR
+OtsAC20SILR_1062	03-Oct-20	Siletz	17	ELS	M		910	91	0 - no clips	6257	1062	Chinook Bend 	44.8793	-123.9630	Creel	NOR
+OtsAC20SILR_1063	03-Oct-20	Siletz	17	ELS	F		885	88.5	0 - no clips	6258	1063	Chinook Bend 	44.8793	-123.9630	Creel	NOR
+OtsAC20SILR_1064	03-Oct-20	Siletz	17	ELS	F		835	83.5	0 - no clips	6259	1064	Chinook Bend 	44.8793	-123.9630	Creel	NOR
+OtsAC20SILR_1065	03-Oct-20	Siletz	17	Paper	F		800	80	0 - no clips	6260	1065	Chinook Bend 	44.8793	-123.9630	Creel	NOR
+OtsAC20SILR_1066	04-Oct-20	Siletz	17	Paper	F		670	67	0 - no clips	6269	1066	Chinook Bend 	44.8793	-123.9630	Creel	NOR
+OtsAC20SILR_1067	04-Oct-20	Siletz	17	Paper	F		800	80	0 - no clips	6261	1067	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1068	04-Oct-20	Siletz	17	Paper	M		750	75	0 - no clips	6262	1068	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1069	04-Oct-20	Siletz	17	Paper	M		920	92	0 - no clips	6263	1069	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1070	04-Oct-20	Siletz	17	Paper	F		915	91.5	0 - no clips	6264	1070	Chinook Bend 	44.8793	-123.9630	Creel	NOR
+OtsAC20SILR_1071	07-Oct-20	Siletz	17	Paper	M		845	84.5	0 - no clips	6265	1071	Chinook Bend 	44.8793	-123.9630	Creel	NOR
+OtsAC20SILR_1072	21-Oct-20	Siletz	17	ELS	F		700	70	0 - no clips	6361	1072	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1073	04-Nov-20	Siletz	17	ELS	M		820	82	0 - no clips	6383	1073	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1074	23-Oct-20	Siletz	17	Paper	F		785	78.5	0 - no clips	6362	1074	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1075	23-Oct-20	Siletz	17	Paper	F		770	77	0 - no clips	6363	1075	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1076	23-Oct-20	Siletz	17	ELS	M		850	85	0 - no clips	6364	1076	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1077	23-Oct-20	Siletz	17	ELS	M		980	98	0 - no clips	6365	1077	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1078	23-Oct-20	Siletz	17	ELS	M		820	82	0 - no clips	6366	1078	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1079	23-Oct-20	Siletz	17	Paper	F		770	77	0 - no clips	6367	1079	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1080	23-Oct-20	Siletz	17	ELS	M		740	74	0 - no clips	6368	1080	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1081	23-Oct-20	Siletz	17	ELS	M		740	74	0 - no clips	6369	1081	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1082	23-Oct-20	Siletz	17	NA	M	Y	500	50	0 - no clips	6370	1082	Strome, Paper	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1083	24-Oct-20	Siletz	17	Paper	F		790	79	0 - no clips	6371	1083	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1084	04-Nov-20	Siletz	17	ELS	M		860	86	0 - no clips	6384	1084	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1085	24-Oct-20	Siletz	17	Paper	F		830	83	0 - no clips	6372	1085	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1086	24-Oct-20	Siletz	17	ELS	M		830	83	0 - no clips	6373	1086	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1087	24-Oct-20	Siletz	17	ELS	M		710	71	0 - no clips	6374	1087	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1088	24-Oct-20	Siletz	17	ELS	F		790	79	0 - no clips	6375	1088	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1089	24-Oct-20	Siletz	17	ELS	M		785	78.5	0 - no clips	6376	1089	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1090	24-Oct-20	Siletz	17	Paper	M		770	77	0 - no clips	6377	1090	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1091	24-Oct-20	Siletz	17	Paper	M		700	70	0 - no clips	6378	1091	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1092	29-Oct-20	Siletz	17	Paper	F		840	84	0 - no clips	6379	1092	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1093	29-Oct-20	Siletz	17	Paper	M		820	82	0 - no clips	6380	1093	Ichwhit	44.8726	-123.9218	Creel	NOR
+OtsAC20SILR_1094	30-Oct-20	Siletz	17	Paper	F		740	74	0 - no clips	6381	1094	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1095	30-Oct-20	Siletz	17	ELS	M		845	84.5	0 - no clips	6382	1095	Strome	44.8138	-123.9730	Creel	NOR
+OtsAC20SILR_1096	04-Nov-20	Siletz	17	Paper	F		680	68	0 - no clips	6385	1096	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1097	04-Nov-20	Siletz	17	Paper	F		825	82.5	0 - no clips	6386	1097	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1098	07-Nov-20	Siletz	17	ELS	F		880	88	0 - no clips	6387	1098	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1099	07-Nov-20	Siletz	17	ELS	F		810	81	0 - no clips	6388	1099	Jack morgan	44.7996	-123.9067	Creel	NOR
+OtsAC20SILR_1100	07-Nov-20	Siletz	17	ELS	M		820	82	0 - no clips	6389	1100	Jack morgan	44.7996	-123.9067	Creel	NOR

@@ -1,0 +1,161 @@
+Pedigree	Individual Name	DateSampled	IndividualSampleLOCATION	Stream	SPECIES	SpeciesID	Run	Age	Gender	FORK LENGTH (mm)	LengthFork1	FieldID1	ScaleNumber	Marks	SamplingMethod	Sampler	COMMENTSGeneral	MotherID	FatherID
+OtsAC20TRAR	OtsAC20TRAR_0001	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	865	86.5	1		AD			
+OtsAC20TRAR	OtsAC20TRAR_0002	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	765	76.5	2		AD RV			
+OtsAC20TRAR	OtsAC20TRAR_0003	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	665	66.5	3		AD			BAD CLIP
+OtsAC20TRAR	OtsAC20TRAR_0004	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	845	84.5	4		AD			
+OtsAC20TRAR	OtsAC20TRAR_0005	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	615	61.5	5		AD			
+OtsAC20TRAR	OtsAC20TRAR_0006	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	730	73	6		N			
+OtsAC20TRAR	OtsAC20TRAR_0007	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	770	77	7		AD			
+OtsAC20TRAR	OtsAC20TRAR_0008	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	855	85.5	8		AD			DARKER COLOR, NO SPOTS
+OtsAC20TRAR	OtsAC20TRAR_0009	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	715	71.5	9		AD RV			
+OtsAC20TRAR	OtsAC20TRAR_0010	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	815	81.5	10		AD			
+OtsAC20TRAR	OtsAC20TRAR_0011	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	765	76.5	11		AD			
+OtsAC20TRAR	OtsAC20TRAR_0012	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	755	75.5	12		AD			
+OtsAC20TRAR	OtsAC20TRAR_0013	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	745	74.5	13		AD			
+OtsAC20TRAR	OtsAC20TRAR_0014	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	755	75.5	14		AD			
+OtsAC20TRAR	OtsAC20TRAR_0015	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	685	68.5	15		N			
+OtsAC20TRAR	OtsAC20TRAR_0016	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	795	79.5	16		AD			
+OtsAC20TRAR	OtsAC20TRAR_0017	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	690	69	17		AD			
+OtsAC20TRAR	OtsAC20TRAR_0018	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	835	83.5	18		AD			
+OtsAC20TRAR	OtsAC20TRAR_0019	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	785	78.5	19		AD			
+OtsAC20TRAR	OtsAC20TRAR_0020	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	785	78.5	20		N			
+OtsAC20TRAR	OtsAC20TRAR_0021	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	785	78.5	21		AD			SOME COLOR
+OtsAC20TRAR	OtsAC20TRAR_0022	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	885	88.5	22		AD			
+OtsAC20TRAR	OtsAC20TRAR_0023	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	770	77	23		AD			
+OtsAC20TRAR	OtsAC20TRAR_0024	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	750	75	24		AD			
+OtsAC20TRAR	OtsAC20TRAR_0025	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	605	60.5	25		AD RV			
+OtsAC20TRAR	OtsAC20TRAR_0026	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	800	80	26		AD			
+OtsAC20TRAR	OtsAC20TRAR_0027	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	805	80.5	27		AD			
+OtsAC20TRAR	OtsAC20TRAR_0028	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	780	78	28		AD			
+OtsAC20TRAR	OtsAC20TRAR_0029	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	605	60.5	29		AD			
+OtsAC20TRAR	OtsAC20TRAR_0030	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	805	80.5	30		AD			COLOR
+OtsAC20TRAR	OtsAC20TRAR_0031	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	785	78.5	31		AD RV			
+OtsAC20TRAR	OtsAC20TRAR_0032	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	785	78.5	32		AD			
+OtsAC20TRAR	OtsAC20TRAR_0033	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	860	86	33		AD			COLOR BAD AD CLIP
+OtsAC20TRAR	OtsAC20TRAR_0034	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	775	77.5	34		AD			
+OtsAC20TRAR	OtsAC20TRAR_0035	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	805	80.5	35		AD			COLOR
+OtsAC20TRAR	OtsAC20TRAR_0036	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	745	74.5	36		AD			
+OtsAC20TRAR	OtsAC20TRAR_0037	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	855	85.5	37		AD			
+OtsAC20TRAR	OtsAC20TRAR_0038	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	745	74.5	38		AD			
+OtsAC20TRAR	OtsAC20TRAR_0039	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	800	80	39		AD			
+OtsAC20TRAR	OtsAC20TRAR_0040	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	725	72.5	40		AD			COLOR
+OtsAC20TRAR	OtsAC20TRAR_0041	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	885	88.5	41		AD			
+OtsAC20TRAR	OtsAC20TRAR_0042	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	740	74	42		AD RV			
+OtsAC20TRAR	OtsAC20TRAR_0043	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	760	76	43		AD			
+OtsAC20TRAR	OtsAC20TRAR_0044	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	790	79	44		AD			BAD CLIP
+OtsAC20TRAR	OtsAC20TRAR_0045	6/1/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	845	84.5	45		AD			COLOR
+OtsAC20TRAR	OtsAC20TRAR_0046	5/27/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	825	82.5	46		AD			ANGLER CAUGHT
+OtsAC20TRAR	OtsAC20TRAR_0047	5/30/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	M	655	65.5	47		AD			ANGLER CAUGHT
+OtsAC20TRAR	OtsAC20TRAR_0048	5/31/2020	Trask River Hatchery	Trask River	Chinook	17	Spring	Adult	F	755	75.5	48		ADRV			ANGLER CAUGHT
+OtsAC20NESR	OtsAC20NESR_0051	6/18/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	750	75	51		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0052	6/18/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	711	71.1	52		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0053	6/18/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	800	80	53		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0054	6/18/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	718	71.8	54		ADLM	Creel		
+OtsAC20NESR	OtsAC20NESR_0055	6/18/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	880	88	55		ADRM	Creel		
+OtsAC20NESR	OtsAC20NESR_0056	6/19/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	762	76.2	56		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0057	6/19/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	787	78.7	57		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0058	6/19/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	782	78.2	58		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0059	6/19/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	826	82.6	59		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0060	6/19/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	690	69	60		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0061	6/19/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	810	81	61		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0062	6/19/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	750	75	62		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0063	6/20/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	860	86	63		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0064	6/22/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	820	82	64		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0065	6/22/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	800	80	65		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0066	6/22/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	830	83	66		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0067	6/22/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	785	78.5	67		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0068	6/22/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	865	86.5	68		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0069	6/22/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	797	79.7	69		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0070	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	791	79.1	70		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0071	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	788	78.8	71		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0072	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	830	83	72		ADRM	Creel		
+OtsAC20NESR	OtsAC20NESR_0073	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	800	80	73		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0074	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	900	90	74		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0075	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	735	73.5	75		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0076	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	659	65.9	76		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0077	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	800	80	77		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0078	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	848	84.8	78		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0079	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	M	758	75.8	79		AD	Creel		
+OtsAC20NESR	OtsAC20NESR_0080	6/23/2020	Three Rivers Trap, Nestucca	Nestucca River	Chinook	17	Spring	Adult	F	660	66	80		AD	Creel		
+OtsAC20SILR	OtsAC20SILR_0001	6/1/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	780	78	1	Y-1		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0002	6/1/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	685	68.5	2	Y-2		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0003	6/4/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	760	76	3	Y-3		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0004	6/4/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	775	77.5	4	Y-4		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0005	6/4/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	740	74	5	Y-5		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0006	6/4/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	765	76.5	6	Y-6		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0007	6/4/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	765	76.5	7	Y-7		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0008	6/4/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	J	505	50.5	8	Y-8		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0009	6/4/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	650	65	9	Y-9		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0010	6/4/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	665	66.5	10	Y-10		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0011	6/8/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	780	78	11	Y-11		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0012	6/11/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	740	74	12	Y-12		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0013	6/11/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	705	70.5	13	Y-13		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0014	6/16/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	J	590	59	14	Y-14		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0015	6/24/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	815	81.5	15	Y-15		Trap	LE	
+OtsAC20SILR	OtsAC20SILR_0016	6/24/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	760	76	16	Y-16		Trap	LE	
+OtsAC20SILR	OtsAC20SILR_0017	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	750	75	17	Y-17		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0018	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	790	79	18	Y-18		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0019	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	800	80	19	Y-19		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0020	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	810	81	20	Y-20		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0021	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	810	81	21	Y-21		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0022	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	800	80	22	Y-22		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0023	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	795	79.5	23	Y-23		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0024	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	770	77	24	Y-24		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0025	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	J	550	55	25	Y-25		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0026	6/26/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	765	76.5	26	Y-26		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0027	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	800	80	27	Y-27		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0028	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	850	85	28	Y-28		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0029	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	785	78.5	29	Y-29		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0030	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	730	73	30	Y-30		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0031	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	810	81	31	Y-31		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0032	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	705	70.5	32	Y-32		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0033	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	740	74	33	Y-33		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0034	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	790	79	34	Y-34		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0035	6/26/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	830	83	35	Y-35		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0036	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	795	79.5	36	Y-36		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0037	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	775	77.5	37	Y-37		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0038	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	J	595	59.5	38	Y-38		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0039	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	F	720	72	39	Y-39		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0040	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	700	70	40	Y-40		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0041	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	720	72	41	Y-41		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0042	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	850	85	42	Y-42		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0043	6/26/2020	Siletz Falls	Siletz River	CHS	17	Spring	Adult	M	615	61.5	43	Y-43		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0044	6/26/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	690	69	44	Y-44		Trap	PO	
+OtsAC20SILR	OtsAC20SILR_0045	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	660	66	45	Y-45		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0046	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	770	77	46	Y-46		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0047	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	700	70	47	Y-47		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0048	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	740	74	48	Y-48		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0049	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	735	73.5	49	Y-49		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0050	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	840	84	50	Y-50		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0051	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	735	73.5	51	Y-51		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0052	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	870	87	52	Y-52		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0053	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	595	59.5	53	Y-53		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0054	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	540	54	54	Y-54		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0055	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	595	59.5	55	Y-55		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0056	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	595	59.5	56	Y-56		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0057	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	800	80	57	Y-57		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0058	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	680	68	58	Y-751		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0059	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	730	73	59	Y-752		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0060	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	720	72	60	Y-753		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0061	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	720	72	61	Y-771		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0062	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	720	72	62	Y-772		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0063	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	800	80	63	Y-773		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0064	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	800	80	64	Y-774		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0065	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	810	81	65	Y-775		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0066	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	755	75.5	66	Y-777		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0067	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	810	81	67	Y-754		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0068	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	570	57	68	Y-779		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0069	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	645	64.5	69	Y-780		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0070	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	470	47	70	Y-781		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0071	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	550	55	71	Y-782		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0072	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	795	79.5	72	Y-783		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0073	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	805	80.5	73	Y-785		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0074	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	590	59	74	Y-787		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0075	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	585	58.5	75	Y-788		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0076	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	825	82.5	76	Y-790		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0077	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	F	705	70.5	77	Y-791		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0078	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	565	56.5	78	Y-795		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0079	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	805	80.5	79	Y-796		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0080	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	M	675	67.5	80	Y-797		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_0081	6/29/2020	Siletz Falls	Siletz River	CHS 	17	Spring	Adult	J	455	45.5	81	Y-798		Trap	CC	
+OtsAC20SILR	OtsAC20SILR_1001	5/23/2020	Mill Creek above Logsden Bridge	Siletz River	CHS 	17	Spring	Adult							Angler	Derek Wilson	Frozen until 6/29/20

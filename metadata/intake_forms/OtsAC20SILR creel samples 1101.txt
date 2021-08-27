@@ -1,0 +1,2 @@
+Individual Name	DateSampled	Stream	SpeciesID	HarvestCard	Gender	JackorJill	ForkLen	LengthFork1	Marks	ScaleNumber	FieldID1	IndividualSampleLocation	IndividualLat	IndividualLong	SampleMethod	WildorHat?	CommentsGeneral
+OtsAC20SILR_1101	02-Oct-20	Siletz	17	ELS	F		800	80	0 - no clips	6184	1001	Ichwhit	44.8726	-123.9218	Creel	NOR	Was originally labeled OtsAC20SILR_1001, but ID was already taken

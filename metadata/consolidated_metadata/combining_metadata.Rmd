@@ -1,0 +1,104 @@
+---
+title: "sample_metadata"
+output: html_document
+---
+
+There are individuals duplicated across sampling metadata and across sequencing runs / libraries. 
+
+I already have a deduplicated sample spreadsheet taken from all the sequencing indexes used so far (August 20 2021), but the problem I'm facing now is that different metadata spreadsheets for the same individuals use different column names for the same info, some having missing data and complete data for the same field and individual across spreadsheets, and some spreadsheets have more or less columns for the same individuals. Below I attempt to _coalesce_(verb from sql) these spreadsheets. The goal is to have a single deduplicted metadata spreadsheet with all possible information for each individual.
+
+```{r}
+require(magrittr)
+require(tidyverse)
+
+#read in all the individuals gathered from sequencing i5/i7 indexes
+chinook <- readxl::read_xlsx("FRA/coastal_chinook/project_info/combined_run_info.xlsx", sheet = 3)
+
+#deduplicate the individuals
+dedupl <- chinook %>%
+  distinct(Sample, .keep_all = TRUE) %>%
+  select(Population, Pedigree, Sample)
+
+#now (ouside of r), manually renamed all the metadata columns with standard names and deleted any that were entirely blank or very unlikely to be useful (i.e. sampler name, fork length in cm when fork lenght in mm already provided, etc)
+meta1 <- read_tsv("FRA/coastal_chinook/metadata/standardized/coor_coqr_cedc_tilr_nesr_trar_wilr.txt", col_type = str_c(rep("c", 14), collapse = ""))
+meta2 <- read_tsv("FRA/coastal_chinook/metadata/standardized/june_trask_siletz_nestucca.txt", col_type = str_c(rep("c", 11), collapse = ""))
+meta3 <- read_tsv("FRA/coastal_chinook/metadata/standardized/nump_sump.txt", col_type = str_c(rep("c", 15), collapse = ""))
+meta4 <- read_tsv("FRA/coastal_chinook/metadata/standardized/Run017_metadata_standardized.txt", col_type = str_c(rep("c", 9), collapse = ""))
+meta5 <- read_tsv("FRA/coastal_chinook/metadata/standardized/silr_siur_sixr_umpr_yaqr.txt", col_type = str_c(rep("c", 12), collapse = ""))
+meta6 <- read_tsv("FRA/coastal_chinook/metadata/standardized/silr1.txt", col_type = str_c(rep("c", 15), collapse = ""))
+meta7 <- read_tsv("FRA/coastal_chinook/metadata/standardized/silr2.txt", col_type = str_c(rep("c", 13), collapse = ""))
+
+combined_meta <- bind_rows(meta1, meta2, meta3, meta4, meta5, meta6, meta7)
+
+#merge missing data from whichever duplicate sample across metadata tables has the information
+coalesce_by_column <- function(df) {
+  return(dplyr::coalesce(!!! as.list(df)))
+}
+
+combined_meta %<>%
+  group_by(sample) %>%
+  summarise_all(coalesce_by_column)
+
+
+
+#combined_meta %<>%
+#  mutate(nas = rowSums(is.na(.))) %>%
+#  group_by(sample) %>%
+#  slice_min(nas) %>% #get rid of duplicate samples, keep whichever has more info
+#  select(-nas) %>%
+#  ungroup()
+
+
+b <- left_join(dedupl, combined_meta, by = c("Sample" = "sample"))
+
+write_tsv(b, "combined_metadata.txt")
+```
+
+```{r}
+#which samples are in the 017 run, but not in the 018 run?
+
+run18 <- filter(chinook, `Illumina Run` == "018")
+run17 <- filter(chinook, `Illumina Run` == "017")
+
+add_to_25 <- run17[!(run17$Sample %in% run18$Sample),]
+add_to_25 %>%
+  distinct(Sample, .keep_all = TRUE) %>%
+  count(Population)
+
+#let's make a table of these samples, but get the adapter info / index from run018 so it will be easier for Cristin to avoid overlapping adapters
+
+to_repeat <- add_to_25 %>%
+  distinct(Sample, .keep_all = TRUE) %>%
+  select(Sample, Population, Pedigree)
+
+write_tsv(to_repeat, file = "samples_from_017_to_regenotype.txt")
+```
+
+
+```{r}
+combined_meta %>%
+ filter(str_detect(sample, "SIXR")) %>%
+  distinct(sample, .keep_all = TRUE) %>%
+ count(reach_id, run, marks )
+
+```
+
+```{r}
+#ots28
+
+ots28 <- readxl::read_xlsx("~/FRA/GT-Seq_SOP/GT-seq/Panel_info/Ots28_marker_info.xlsx", sheet = 2)
+critfc <- readxl::read_xlsx("~/FRA/GT-Seq_SOP/GT-seq/Panel_info/Ots Loci Information. BPA. IDT. PROBEseq 1Feb2021.xlsx", sheet = 2)
+critfc_map <- readxl::read_xlsx("~/FRA/GT-Seq_SOP/GT-seq/Panel_info/Ots Loci Information. BPA. IDT. PROBEseq 1Feb2021.xlsx", sheet = 4)
+
+Ots356_pool <- read_tsv("~/FRA/GT-Seq_SOP/GT-seq/Primer_Pools/Ots356_Primer_Pool.txt")
+Ots353_pool <- read_tsv("~/FRA/GT-Seq_SOP/GT-seq/Primer_Pools/Ots353_PrimerPool.txt")
+
+
+ots28 %<>%
+  mutate(Ots356 = `Marker Name` %in% Ots356_pool$marker) %>%
+  mutate(Ots353 = `Marker Name` %in% Ots353_pool$Marker) %>%
+  left_join(select(critfc_map, Locus, `snp coordinate in genome` ), by = c(`Marker Name`="Locus"))
+
+#write_tsv(ots28, "../../../Desktop/ots28.txt")
+```
+
