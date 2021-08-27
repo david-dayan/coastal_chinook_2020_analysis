@@ -2,10 +2,10 @@
 
 This is the parent repository for all 2020 Oregon Coast Chinook analyses.
 
-Several notebooks and directories are contained here.
+Several notebooks and directories are contained here.  
 
 Directories:
-(1) ~/run_genotyping: individual illumina run genotyping information
-(2) ~/project_genotyping: combining previously genotyped runs into a single dataset
-(3) ~/analyses: all data analysis after genotype calling and filtering 
-    (a) ~/analyses/raw_genos: 
+__(1) ~/run_genotyping:__ individual illumina run genotyping information  
+__(2) ~/project_genotyping:__ combining previously genotyped runs into a single dataset  
+__(3) ~/analyses:__ all data analysis after genotype calling and filtering  
+    (a) ~/analyses/raw_genos:  
