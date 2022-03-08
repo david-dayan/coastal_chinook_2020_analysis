@@ -1,0 +1,101 @@
+---
+title: "run 018 filtering"
+output:
+  html_document:
+    df_print: paged
+    code_folding: hide
+    toc: true
+    toc_float: true
+    toc_collapsed: false
+---
+
+```{r, message=FALSE, warning=FALSE}
+require(tidyverse)
+require(adegenet)
+require(knitr)
+require(magrittr)
+```
+
+# Summary
+
+Run 018 was previously genotyped (see 75bp_Chinook_panel_testing_notebook in this directory), but we didn't do any filtering because we were testing the panel. Here we take the raw genotypes from that project and filter.
+
+# Data Summary
+
+__Samples__ 
+
+Two sets of samples were independently prepared, set A (OtsCoastal2020_PT1) and set B (OtsCoastal2020_PT3). Populations and sample sizes are summarized in the table below
+
+```{r, message=FALSE, warning=FALSE}
+#read metadata
+meta_data <- read_csv("metadata/CoastalChinook_Run017_Metadata.csv")
+
+#clean this up
+meta_data %<>% 
+  mutate(DateSampled = as.Date(DateSampled, format = "%m/%d/%Y")) %>%
+  rename(sample = `Individual Name`, date = DateSampled, sex = Gender, marks = Marks, location = IndividualSampleLOCATION ) %>%
+  mutate(pop = str_sub(Pedigree, 8, 11)) %>%
+  select(sample, pop, date, sex, marks, location)
+
+indexes <- read_tsv("metadata/run_018_index_list.txt")
+
+#summarize
+kable(meta_data %>%
+        filter(sample %in% indexes$SampleID) %>%
+        group_by(pop) %>%
+        tally() %>%
+        ungroup())
+```
+
+
+
+__Panels__  
+
+Each set of samples was run twice: once with the new 75bp Chinook panel (referred to as OtsGTseqV6.1 at CRITFC) and once with this panel + additional Ots28 markers tagging the RoSA developed by SWFSC. 
+
+Primers from OtsGTseqV6.1 were sent in an aliquot and contained all 351 markers. The RoSA markers include 7 markers individually spiked into library prep, however 2 were excluded: Ots37124-12270118 interacted with Ots_103122-180 (from OtsGTseqV6.1) in previous tests, however, the primers from OtsGTseqV6.1 were sent in a pre-mixed aliquot so Ots_103122-180 could not be excluded, and Ots37124-12270118 was excluded from the spike-in instead. The second excluded RoSA marker was Ots37124_12279142, as it is a duplicate with a marker in OtsGTseqV6.1. 
+
+The total panel size for the OtsGTseqV6.1 + RoSA markers then is 356 (351 + 7 - 2). For short i refer to OtsGTseqV6.1 panel alone as Ots351, and OtsGTseqV6.1 + RoSA as Ots356
+
+Panels are split by library prep plate. OtsGTseqV6.1 panel alone (Ots351) plates are plate11 (i7 sequence:CGGATG) and plate13 (i7 sequence:AACTTA). OtsGTseqV6.1+RoSA panel (Ots356) plates are plate 12 (i7 sequence:AATGTC) and 14 (i7 sequence:ACCGGA).
+
+For the coastal chinook project we use Ots356 panel fastqs.
+
+__Sequencing data__
+
+Did not examine read quality for this project. Reads are available at /dfs/Omalley_Lab//dayan/coastal_chinook_2020/75bp_panel_qc/raw_reads/Ots356
+
+# Genotyping
+
+Log of raw reads to unfiltered genotype calls is available in the corresponding notebook (75bp_Chinook_panel_testing_notebook.html), in this directory. However in this section we'll pull the some important statistics from this pipeline.
+
+DIDNT DO SEX GENOTYPING
+
+NEED TO MAKE SOME DECISIONS HERE
+
+run 021 is fully filtered already, but has a ton of missing data because of the bad plate and will have samples re run again
+run 018 is not filtered and not sex genotyped
+
+plan1:
+- run sex genotyper script on the run 018 fastqs and recompile
+- filter as usual
+- cbind with run 021 individuals make sure to reatin all columns in any unfiltered dataset (some markers in Ots353 not in Ots356 and vice versa)
+- eventually do the same with run 025
+
+plan 2: 
+- run sex genotyper script on the run 018 fastqs and recompile
+- combine all raw genos into a single dataframe, same with marker info then conduct filtering collectively
+- are there population dependent patterns of missingness?
+
+
+plan 1 does all the filtering by run instead of population. Does this make sense
+- 
+
+
+__Raw Depths__
+```{r}
+marker_info <- read_tsv("genotype_data/marker_info_356.txt")
+genos_0.1 <- read_csv("./genotype_data/Ots356_coastal_chinook_run018_genos_0.1.csv")
+```
+
+

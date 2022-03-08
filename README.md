@@ -9,11 +9,11 @@ The primary goal for this project is to characterize genetic variation at run-ti
 Several notebooks and directories are contained here.  
 
 ### Directories:  
-* __~/run_genotyping:__ individual illumina run genotyping information  
+* __~/run_genotyping:__ individual illumina run genotyping information, some runs were previously genotyped, they are here, but not used  
   * __run 018:__  
   * __run 021:__  
   * __run 025:__  
-* __~/project_genotyping:__ combining previously genotyped runs into a single dataset  
+* __~/project_genotyping:__ this directory contains the joint genotyping log and results  
 * __~/metadata:__ project metadata  
   * __intake_forms :__ raw intake data  
   * __consolidated_metadata:__  cleaned up metadata  
@@ -23,4 +23,5 @@ Several notebooks and directories are contained here.
   * __~/analyses/genotype_vis:__  presentation of filtered data with no analysis, by basin
 
 ### Notebooks
-add notebooks here as we make them
+* __Combining_metadata.rmd:__ log of combining sample intake forms, progeny entries etc into a single document with unified field names  
+* __2020_OC_Chinook_Genotyping_Notebook.html__: genotyping notebook - raw reads to filtered genotypes

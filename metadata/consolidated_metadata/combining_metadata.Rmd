@@ -3,10 +3,15 @@ title: "sample_metadata"
 output: html_document
 ---
 
+here we consolidate and clean up metadata for OC chinook
+
+
+# combine datasets
+
+
 There are individuals duplicated across sampling metadata and across sequencing runs / libraries. 
 
 I already have a deduplicated sample spreadsheet taken from all the sequencing indexes used so far (August 20 2021), but the problem I'm facing now is that different metadata spreadsheets for the same individuals use different column names for the same info, some having missing data and complete data for the same field and individual across spreadsheets, and some spreadsheets have more or less columns for the same individuals. Below I attempt to _coalesce_(verb from sql) these spreadsheets. The goal is to have a single deduplicted metadata spreadsheet with all possible information for each individual.
-
 ```{r}
 require(magrittr)
 require(tidyverse)
@@ -101,4 +106,149 @@ ots28 %<>%
 
 #write_tsv(ots28, "../../../Desktop/ots28.txt")
 ```
+
+# clean up
+
+note: there've been some other changes made to the metadata file that weren't recorded here
+
+lets read it back in 
+
+```{r, message=FALSE, warning=FALSE}
+# LOCAL R
+
+meta_data <- readxl::read_xlsx("combined_run_info.xlsx", sheet = 5, col_types = "text")
+
+```
+
+### NOR_HOR
+
+We need to consolidate the NOR/HOR field info
+```{r}
+#first lets look at the distribution of values in teh various fields
+
+unique(meta_data$marks)
+unique(meta_data$origin)
+
+#are there any rows where we have both fields
+
+meta_data %>%
+  select(marks, origin) %>%
+  count(marks, origin)
+
+#yes there are some rows with double info, many with no info, none that disagree with each other
+
+# some things to investigate 
+#what do 0 2 and 9 mean?
+# 0 is no clip, 2 is a clip, 9 is an NA (field folks couldn't decide)
+
+#since there is no disagreement let's merge lets join from the marks column into origin column whenever there is an NA in origin
+
+meta_data %<>%
+  mutate(origin2 = case_when(origin == "NA" ~ marks,
+                            TRUE ~ origin)) %>%
+  mutate(origin2 = case_when(str_detect(origin2, "0") ~ "NOR",
+                             str_detect(origin2, "2") ~ "HOR",
+                             str_detect(origin2, "9") ~ "NA",
+                             str_detect(origin2, "AD") ~ "HOR",
+                             origin2 == "N" ~ "NOR",
+                             TRUE ~ origin2)) %>%
+  mutate(origin = origin2)
+
+
+```
+
+404 are NA for both fields, 405 if you count the one labeled "9,"
+
+403 are Siletz Falls trap fish confirmed as all NOR, the "9" fish kept as NA and the remaining fish with unknown origin was an angler sample with no additional infor in the metadata, kept as NA
+
+### location 
+
+There are several fields containing location info: stream, location, lat/lon, reach id and subbasin, lets look at all combos to see how we can consolidate them
+
+```{r}
+meta_data %>%
+  count(stream, location, subbasin, lat, reach_id)
+```
+
+Observations:  
+- stream largely refers to the highest order basin, except for the NUMP and SUMP samples, also TILL bay samples are labeled as TILR population (wrong) but correctly have no stream ID, double also Cedar Creek is super confusing for several reasons, let's make a note to change the "population" part of the metadata to call these NESR 
+- location is generally a specific named reach or creek, the following exceptions need to be reconciled though  
+    - reach ids, sometimes a reach id is used in place of "location" but we know all of these reach ids now so we can go back and change them to creek names
+    - a few are not specific locations but broad (eg Yaquina). in some cases that is as good as we can get, but in others there's more specific info (lat/lon, reach id) that we can try to convert into something more specific   
+- subbasin is only used for umpqua and is always already in the population field and pedigree, if we choose to leave stream as is, instead of converting NUMP and SUMP to UMP, we can just delete this field, note that the handful of nump samples labeled UMP in "stream" should be converted to NUMP though
+- lat lon should be retained
+- reach id should be retained
+
+lets get to work:
+```{r}
+#lets get the stream/reach ids
+reach_ids <- readxl::read_xlsx("2020 Chinook DNA sample locations.xlsx")
+
+meta_data %<>%
+  # convert any reach ids in location field to streamname
+  left_join(reach_ids, by = c("reach_id" = "ReachIDSeg")) %>%
+  mutate(location = case_when(str_starts(location, "2") ~ StreamName,
+                              TRUE ~ location)) 
+
+# vague or no "location"
+# OtsCC20NESR_0001 - 0015  no info, looked everywhere, this is as detailed as it gets
+# OtsCC20SUMP_0009 0004 and 0010
+    # 0009 and 0010 didnt record location that data
+    # 0004 has lat and lon corresponding to FS-2838 bridge, rename "location" to reflect this
+# trask samples with nfk trask or s fk trask but no details, looked at every available metadata doc for these samples, none provide more detailed location
+# yaquina - there is a reqach id, change to reflect
+
+#manually make these changes
+meta_data %<>%
+  mutate(location = case_when(Sample == "OtsCC20SUMP_0004" ~ "FS-2838 Bridge",
+                              TRUE ~ location)) %>%
+  mutate(location = case_when(location == "Yaquina" ~ "Grant Cr",
+                              TRUE ~ location))
+
+
+# Nestucca/Cedar Creek
+#lets also change the Cedar creek hatchery samples to NESR in the population field (I'd suggest changing the pedigrees and sample names too, but then we wouldnt be able to id the fin clips/tubes in the future)
+
+meta_data %<>%
+  mutate(Population = case_when(Pedigree == "OtsAC20CEDC" ~ "NESR",
+                                TRUE ~ Population))
+```
+
+## Lat/lon
+
+lest convert any specific location information we have into a unified field (lat and lon) for potential use later (e.g. landscape genetics or just mapping)
+
+We'll convert UTM provided by OASIS directly to lat lon, if a small trib name is the only info provided use the confluence with the mainstem. if major river is given with no further detail use the top of the tidewater boudnary from ODFW. keep note of the latter because these are likely to be incaccurate and shouldnt be used for mapping/ lansdscape analysis 
+```{r}
+# lat lon
+# if we have a specific location available to us, let's add to the lat/lon field, we use stream mouths for small creeks if no other info is available
+
+# did this one in excel first wrote out a file with some of the useless fields (see consolidate other fields section below for details here) removed
+
+#write_tsv(select(meta_data, -c(age, scale_number, marks, sampling_method, comments, subbasin, trap, sgs, spawn, snout_id, origin2)), "metadata_clean_0.1.txt")
+
+# recorded decisions here though
+
+# Cedar Creek HAtchery - outlet stream of hatchery
+# Nestucca Bay - a point in the middle of the bay
+# Siletz Falls - assumed the siletz falls fish ladder is the  fish ladder at valzetz falls from images
+# Tillamook Bay - a point in the middle of the bay
+# Trask River Hatchery - outlet stream of hatchery
+# Tioga creek - confluence with s fk coos
+# west laverne - assumed this is west laverne park on the Coquille
+# nestucca bay - point in center of bay
+# nestucca river - no location provided DONT USE THIS ONE FOR LANDSCAPE, chose the top of tidewater boundary at Woods Bridge
+# SUMP 2 samples from SUMP SGS with no data (OtsCC20SUMP_0009, OtsCC20SUMP_0010) - used the confluence of north and south umpqua DONT USE THIS ONE 
+# NFK Trask - confluence of N and S Fork DONT USE THIS ONE
+# S FK Trask - confluence of N and S Fork DONT USE THIS ONE
+
+```
+
+
+### consoldiate other fields
+
+a lot of fields here are trash (not usable or not of interest), we'll keep these of course but let's not clutter our main metadata spreadsheet with them, here we log rationale for each decision.
+
+__field id:__ this has already served its purpose, organizing and quality control of metadata, let's get rid of it  
+__date:__ KEEP IT, changed a few rows where the date was a mutliple month long range to NA, this info may come in handy in the analysis though  
 
