@@ -2332,8 +2332,7 @@ snp_pcs %<>%
   left_join(select(meta_data, Sample, Population))
 
 snp_pcs %<>%
-  filter(Population != "COQR",
-         Population != "YAQR")
+  filter(Population %in% c( "NUMP", "SUMP", "UMPR"))
 
 ggplot(data = snp_pcs)+geom_point(aes(Axis1, Axis2, color = Population), alpha = 0.5) +theme_classic()
 ggplot(data = snp_pcs)+geom_point(aes(Axis2, Axis3, color = Population), alpha = 0.5) +theme_classic()

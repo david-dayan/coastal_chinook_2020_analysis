@@ -1,0 +1,373 @@
+---
+title: "Oregon Coast Chinook GT-seq Genotyping"
+output:
+  html_document:
+    df_print: paged
+    code_folding: hide
+    toc: true
+    toc_float: true
+    toc_collapsed: false
+---
+
+
+# Readme
+
+```{r, message=FALSE, warning=FALSE}
+require(kableExtra)
+require(gt)
+require(gtsummary)
+require(tidyverse)
+require(DiagrammeR)
+require(poppr)
+require(genepop)
+require(graph4lg)
+require(related)
+require(adegenet)
+require(knitr)
+require(magrittr)
+require(openxlsx)
+```
+
+This is document is an R notebook. If you'd like view to pre-rendered figures, read a summary of analysis and interact with code, please open the relevant html file in a browser. 
+
+
+To conduct a similar analyses on your computer, edit or run code: clone this repository into a directory on your local machine and open the .Rproj file in Rstudio.
+
+# Rationale 
+
+- Develop basic summaries and spreadsheets of raw data for exploratory data analysis of the 2020/2021 Oregon Coast Chinook salmon dataset.  
+- Conduct basic EDA analyses  
+
+# Data 
+
+__Data Summary__  
+Raw data included 1186 individuals from 11 river basins genotyped using the SFGL Ots353 GTseq Panel. After filtering, 977 individuals genotyped at 324 markers remained.
+
+__Import Datasets__  
+
+```{r, eval = FALSE}
+# it looks like 2 notes from ODFW didn't get incorporated into our metadata, here we will permanently edit the genos2.2 and metadata files
+
+# note 1 
+# ""All of the Chinook sampled at the Siletz Falls trap were unmarked and are considered springers." - ???
+
+# note 2 - OASIS Carcass samples
+# " On the Oregon Coast, there seems to typically be a small window in early October where the Spring-run have spawned out and died, and the Fall-run haven’t yet started spawning, however there is overlap in some areas at times.  Early October is tricky unless we have notes about the condition of the fish.  Even for carcasses, there is usually a noticeable difference in the condition during the time frame they might overlap.  Thankfully, that sample I mentioned did have a comment on condition.  I would feel comfortable calling the carcasses collected after Oct 15th as Fall-run unless they were noted spawned-out and well degraded/decayed." - Jonathan Nott
+# already done
+
+# so we only have to change the siletz falls fish, all are NOR and spring
+# did this manually in the combined_run_info.xslx spreadsheet (sheet = 5)
+#now let's update the genos R object and save it so we don't have to remember to do this every time
+load("../project_genotyping/filtered_genotype_data/genos_2.2.R")
+genos_2.2 %<>%
+  mutate(origin = case_when(location == "Siletz Falls" ~ "NOR", 
+                            TRUE ~ origin),
+         run = case_when(location == "Siletz Falls" ~ "Spring", 
+                            TRUE ~ run))
+save(genos_2.2, file="../project_genotyping/filtered_genotype_data/genos_2.2.R")
+```
+
+```{r, message=FALSE, warning=FALSE}
+#import filtered genotype data
+load("../project_genotyping/filtered_genotype_data/genind_2.0.R")
+load("../project_genotyping/filtered_genotype_data/genos_2.2.R")
+
+meta_data <- readxl::read_xlsx("../metadata/consolidated_metadata/combined_run_info.xlsx", sheet = 5)
+raw_genos <- read_csv("../project_genotyping/coastal_chinook_GTs_0.1.csv")
+```
+
+
+# Run Timing Markers
+
+
+## Polarize Alleles
+In this section we'll pull out the filtered genotypes for _greb1L/rock1_ markers and write them to a spreadsheet.
+
+### Coastal Lineage Columbia and Rogue Keys
+
+We will "polarize" (define spring and fall alleles) using three keys: one using coastal lineage Columbia River fish, a second using Rogue River fish and a third from the empirical dataset. Details for the first two are below
+
+>__Coastal Lineage__  
+Run timing markers are polarized with fall and spring alleles according to key from Koch and Narum 2020 (details in supplemental table S5). Three columbia river lineages used (coastal, interior ocean‐type, and interior stream‐type), but only kept markers that were significant in the "coastal" lineage (from lower Columbia). Test is fdr corrected p-value <0.05 from an MLM-GWAS between 33 Ots28 SNPs and dsiscrete "early" and "late" phenotypes. All other markers show raw genotypes.
+
+>__Rogue__  
+Run timing markers polarized with winter and spring alleles according to known positives from the Rogue shared from Tasha Thompson (1 fall, 2 spring, only kept diagnostic markers (fixed for alternative alleles in the two run types). Only 21 are diagnostic of 35. All other markers show raw genotypes.
+
+
+```{r, message=FALSE, warning=FALSE}
+# first get the run timing marker information
+ots28_info <- readxl::read_xlsx("../metadata/panel_info/Ots28_marker_info.xlsx", sheet = 2) #note this is already ordered by chr position!
+
+
+# now filter the genotype table for greb1l/rock1 SNPs
+
+#### first change the SWFSC marker names to the same format _/- problem
+ots28_info %<>%
+  mutate(`Marker Name` = str_replace(`Marker Name`, "37124_", "37124-"))
+
+#### check that everything works correctly
+# ots28_info$`Marker Name`[!(ots28_info$`Marker Name` %in% colnames(genos_2.2))]
+# yes, only the filtered markers are missing
+
+genos_ots28 <- genos_2.2 %>%
+  select(sample, Population, date, run, phenotypic_sex = sex, genotypic_sex = "Ots_SEXY3-1", origin, population_latitude, ots28_info$`Marker Name`[(ots28_info$`Marker Name` %in% colnames(genos_2.2))]) %>% 
+  arrange(desc(population_latitude))
+
+
+```
+
+```{r, message=FALSE, warning=FALSE, eval = FALSE}
+
+#columbia river
+
+col_key <- read_tsv("../metadata/panel_info/coastal_columbia_key.txt")
+
+#now polarize alleles
+# I have to make these excel spreadsheet quite frequently and using the excel GUI is error prone and extremely time consuming. let's finally write an r script that can be quickly repurposed for future work.
+
+# create the excel workbook
+wb <- createWorkbook()
+
+#Columbia River Sheet
+addWorksheet(wb,sheetName = "coastal_columbia")
+writeData(wb, 1, genos_ots28)
+color_spring <- createStyle(fgFill = "#ABEBC6") 
+color_het <- createStyle(fgFill = "#F7DC6F") 
+color_fall <- createStyle(fgFill = "#EC7063") 
+
+
+
+for (i in 1:nrow(col_key)){
+  column_index <- which(colnames(genos_ots28) == col_key$marker[i])
+  addStyle(wb = wb, sheet = "coastal_columbia", style = color_spring, rows = which(genos_ots28[,column_index] == col_key$spring[i]) + 1, cols = which(colnames(genos_ots28) == col_key$marker[i]))
+}
+for (i in 1:nrow(col_key)){
+  column_index <- which(colnames(genos_ots28) == col_key$marker[i])
+  addStyle(wb = wb, sheet = "coastal_columbia", style = color_fall, rows = which(genos_ots28[,column_index] == col_key$fall[i]) + 1, cols = which(colnames(genos_ots28) == col_key$marker[i]))
+}
+for (i in 1:nrow(col_key)){
+  column_index <- which(colnames(genos_ots28) == col_key$marker[i])
+  addStyle(wb = wb, sheet = "coastal_columbia", style = color_het, rows = which(genos_ots28[,column_index] == col_key$het1[i]) + 1, cols = which(colnames(genos_ots28) == col_key$marker[i]))
+}
+for (i in 1:nrow(col_key)){
+  column_index <- which(colnames(genos_ots28) == col_key$marker[i])
+  addStyle(wb = wb, sheet = "coastal_columbia", style = color_het, rows = which(genos_ots28[,column_index] == col_key$het2[i]) + 1, cols = which(colnames(genos_ots28) == col_key$marker[i]))
+}
+
+#openXL(wb)
+
+
+#now rogue
+rogue_key <- read_tsv("../metadata/panel_info/rogue_key.txt")
+#Columbia River Sheet
+addWorksheet(wb,sheetName = "rogue")
+writeData(wb, 2, genos_ots28)
+
+
+for (i in 1:nrow(rogue_key)){
+  column_index <- which(colnames(genos_ots28) == rogue_key$marker[i])
+  addStyle(wb = wb, sheet = "rogue", style = color_spring, rows = which(genos_ots28[,column_index] == rogue_key$spring[i]) + 1, cols = which(colnames(genos_ots28) == rogue_key$marker[i]))
+}
+for (i in 1:nrow(rogue_key)){
+  column_index <- which(colnames(genos_ots28) == rogue_key$marker[i])
+  addStyle(wb = wb, sheet = "rogue", style = color_fall, rows = which(genos_ots28[,column_index] == rogue_key$fall[i]) + 1, cols = which(colnames(genos_ots28) == rogue_key$marker[i]))
+}
+for (i in 1:nrow(rogue_key)){
+  column_index <- which(colnames(genos_ots28) == rogue_key$marker[i])
+  addStyle(wb = wb, sheet = "rogue", style = color_het, rows = which(genos_ots28[,column_index] == rogue_key$het1[i]) + 1, cols = which(colnames(genos_ots28) == rogue_key$marker[i]))
+}
+for (i in 1:nrow(rogue_key)){
+  column_index <- which(colnames(genos_ots28) == rogue_key$marker[i])
+  addStyle(wb = wb, sheet = "rogue", style = color_het, rows = which(genos_ots28[,column_index] == rogue_key$het2[i]) + 1, cols = which(colnames(genos_ots28) == rogue_key$marker[i]))
+}
+# openXL(wb) use this to open it (we'll save later)
+
+```
+
+
+### Empirical Allele Polarization
+
+As we know that (1) the strength of association at these markers varies across lineages and (2) not all of our markers are polarized in the coastal lineage Columbia River and Rogue River keys used above, it may also be useful to use the empirical dataset to define spring and fall alleles. 
+
+Here I conduct an extremely rough association study. I fit a mixed linear model at each marker, fitting count of major alleles against assumed run phenotype (assigned by ODFW) and including population as a random effect. Then we fdr correct the "p-values".  
+
+First let's take a look at the distribution of phenotypes
+
+```{r}
+
+tbl_summary(select(genos_2.2, Population, run), by = run, missing = "ifany") %>%
+  modify_header(label ~ "") %>%
+  modify_spanning_header(c("stat_1", "stat_2") ~ "**run**") %>%
+  as_kable_extra() %>%
+  kable_classic(full_width = F, html_font = "Arial")
+
+```
+
+Yes, wow, this is definitely "rough," uneven sampling across populations and run, and the two seem confounded. This is okay, it's just for exploratory data analysis. We'll subsample to dataset to balance sample size across runs and run the MLM association study.
+
+```{r, message=FALSE, warning=FALSE, cache= TRUE}
+#get even sample size
+genos_ots28_sampled <- genos_ots28 %>%
+  drop_na(run) %>%
+  group_by(run) %>%
+  slice_sample(n = 204) %>%
+  ungroup()
+
+# convert to integers
+genos_ots28_int <- data.frame(select(genos_ots28_sampled,run, Population), lapply(select(genos_ots28_sampled, dplyr::starts_with("Ots")), function(x){as.numeric(factor(x, levels = names(sort(-table(x)))))}))
+
+           
+#first let's make the data long
+genos_ots28_long <- genos_ots28_int %>%
+  pivot_longer(cols = dplyr::starts_with("Ots"), names_to = "marker", "value", values_to = "gt") %>%
+  drop_na()
+# 
+# tests <- genos_ots28_long %>% 
+#   mutate(run = case_when(run == "Spring" ~ 1,
+#                          run == "Fall" ~ 2)) %>%
+#   nest(data = c(run, gt, Population)) %>% 
+#   mutate(model = map(data, ~anova(lme4::lmer(run ~ gt + (1|Population), .))), 
+#          tidy = map(model, broom::tidy)) %>% 
+#   select(marker, tidy) %>% 
+#   unnest(tidy)
+# 
+
+# now we'll fit a mlm (run ~ allele count + population as random effect) - note again this is super rough and just for EDA
+
+tests <- genos_ots28_long %>% 
+  mutate(run = case_when(run == "Spring" ~ 1,
+                         run == "Fall" ~ 2)) %>%
+  group_by(marker) %>%
+  group_map( ~summary(lmerTest::lmer(run ~ gt + (1|Population), .))) %>%
+  map(~coef(.)) 
+
+mks <- genos_ots28_long %>%
+  distinct(marker) %>%
+  pull(marker)
+
+p_vals_mlm <- as.data.frame(cbind(mks, p.adjust(unlist(tests)[seq(10,320, 10)], method = "fdr"))) %>%
+  rename(marker = mks, fdr = V2) %>%#just grab the p-values
+  mutate(fdr = as.numeric(levels(fdr))[fdr])#convert the ugly values to integers
+
+
+```
+
+All but one marker (Ots28_11201129) is strongly associated with run timing after fitting population as a random effect.
+
+To keep this simple and fast we'll find the major allele in each run type for all signficant markers and use this to polarize the alleles.
+
+Let's make a plot and table of this for easy reference (below)
+
+```{r, message=FALSE, warning=FALSE}
+
+#plot alleles
+allele_plot_data <- genos_ots28_sampled %>%
+  pivot_longer(cols = dplyr::starts_with("Ots"), names_to = "marker", "value", values_to = "gt") %>%
+  mutate(run = case_when(run == "Spring" ~ -1,
+                         run == "Fall" ~ 1)) %>%
+  filter(gt != "00") %>%
+  group_by(marker, gt) %>%
+  summarise(mean_run = mean(run, na.rm = TRUE), n = n())
+
+#next we'll split the data into two sets and plot each on its own line
+marker_set1 <- (distinct(allele_plot_data, marker) %>% pull())[1:16]
+marker_set2 <- (distinct(allele_plot_data, marker) %>% pull())[17:32]
+
+ggplot(filter(allele_plot_data, marker %in% marker_set1), aes(x = marker, mean_run, fill = gt ))+geom_bar( position = "dodge", stat = "identity")+geom_text( aes(label=gt))+theme_classic()+theme(axis.text.x = element_text(angle = 90), legend.position = "none") + ylab("average run \n (-1 is spring, +1 is fall)")
+
+ggplot(filter(allele_plot_data, marker %in% marker_set2), aes(x = marker, mean_run, fill = gt ))+geom_bar( position = "dodge", stat = "identity")+geom_text( aes(label=gt))+theme_classic()+theme(axis.text.x = element_text(angle = 90), legend.position = "none")+ ylab("average run \n (-1 is spring, +1 is fall)")
+
+# let's also write the allele plot data out in a way to make it easy to make the key for conditional formatting the excel spreadsheet
+a <- allele_plot_data %>%
+  group_by(marker) %>%
+  slice_min(mean_run) %>%
+  select(marker, spring = gt)
+
+b <- allele_plot_data %>%
+  group_by(marker) %>%
+  slice_max(mean_run) %>%
+  select(marker, fall = gt)
+
+#write_tsv(left_join(a,b), "../metadata/panel_info/empirical_key.txt")
+
+```
+
+Already something useful coming out of this EDA. There appears to be strong dominance of spring alleles for a lot of markers. Worth exploring later, but remember that after balancing sample sizes to make statistics easier to compare our samples sizes for (especically for heterozygotes) are pretty small and there are many other issues with this dataset. 
+
+Below we use the result above to polarize the alleles.
+
+```{r, message = FALSE, warning=FALSE, eval = FALSE}
+emp_key <- read_tsv("../metadata/panel_info/empirical_key.txt")
+
+#Columbia River Sheet
+addWorksheet(wb,sheetName = "empirical")
+writeData(wb, 3, genos_ots28)
+
+
+
+for (i in 1:nrow(emp_key)){
+  column_index <- which(colnames(genos_ots28) == emp_key$marker[i])
+  addStyle(wb = wb, sheet = "empirical", style = color_spring, rows = which(genos_ots28[,column_index] == emp_key$spring[i]) + 1, cols = which(colnames(genos_ots28) == emp_key$marker[i]))
+}
+for (i in 1:nrow(emp_key)){
+  column_index <- which(colnames(genos_ots28) == emp_key$marker[i])
+  addStyle(wb = wb, sheet = "empirical", style = color_fall, rows = which(genos_ots28[,column_index] == emp_key$fall[i]) + 1, cols = which(colnames(genos_ots28) == emp_key$marker[i]))
+}
+for (i in 1:nrow(emp_key)){
+  column_index <- which(colnames(genos_ots28) == emp_key$marker[i])
+  addStyle(wb = wb, sheet = "empirical", style = color_het, rows = which(genos_ots28[,column_index] == emp_key$het1[i]) + 1, cols = which(colnames(genos_ots28) == emp_key$marker[i]))
+}
+for (i in 1:nrow(emp_key)){
+  column_index <- which(colnames(genos_ots28) == emp_key$marker[i])
+  addStyle(wb = wb, sheet = "empirical", style = color_het, rows = which(genos_ots28[,column_index] == emp_key$het2[i]) + 1, cols = which(colnames(genos_ots28) == emp_key$marker[i]))
+}
+
+#openXL(wb) #used this to save and finish formatting the spreadsheet in excel
+```
+
+## LD
+
+Since we already have the code written, let's plot LD to help confirm any disequilbrium we detect when looking at the spreadsheets.
+
+No splitting by population, balancing sample size across runs or anything else that might be valuable to do at a later point, just dataset wide r^2
+```{r, cache = TRUE, message = FALSE, warning=FALSE}
+load("../project_genotyping/filtered_genotype_data/genind_2.0.R")
+
+run_timing_loci_names <- ots28_info$`Marker Name`
+
+ldreport <- dartR::gl.report.ld(dartR::gi2gl(genind_2.0[loc=run_timing_loci_names], verbose = 0), name = NULL, save = FALSE, verbose = 0 )
+
+#now we need to add loci names back to this report
+name_key <- data.frame(names(genind_2.0[loc=run_timing_loci_names]$loc.n.all), c(1:32))
+colnames(name_key) <- c("marker", "id")
+
+ldreport %<>%
+  left_join(name_key, by = c("loc1"="id")) %>%
+  rename(marker_1 = marker) %>%
+  left_join(name_key, by = c("loc2"="id")) %>%
+  rename(marker_2 = marker) 
+
+
+
+ldreport %<>%
+  left_join(select(ots28_info, "Marker Name", Position), by = c("marker_1" = "Marker Name")) %>%
+  rename(marker1_position = Position) %>%
+  left_join(select(ots28_info, `Marker Name`, Position), by = c("marker_1" = "Marker Name")) %>%
+  rename(marker2_position = Position)
+
+# some markers are on the wrong side of the diagonal, let's print both sides
+ldreport_rev <- ldreport
+ldreport_rev[, c("marker_1", "marker_2", "marker1_position", "marker2_position")] <- ldreport_rev[, c("marker_2", "marker_1", "marker2_position", "marker1_position")]
+
+ldreport <- rbind(ldreport, ldreport_rev)
+
+
+ldreport %<>% #now relevel
+  mutate(marker_1 = fct_reorder(marker_1, marker1_position)) %>%
+  mutate(marker_2 = fct_reorder(marker_2, marker2_position))
+
+#now plot
+ggplot(data = filter(ldreport))+geom_tile(aes(marker_1, marker_2, fill = R2), size = 2)+scale_fill_viridis_c(option = "C")+theme_classic()+theme(axis.text.x = element_text(angle = 90))+ggtitle("")+coord_equal() 
+
+```
+
