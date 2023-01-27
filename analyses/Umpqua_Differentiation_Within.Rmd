@@ -1,0 +1,259 @@
+---
+title: "Umpqua Within-Basin Differentiation"
+output:
+  html_document:
+    df_print: paged
+    code_folding: hide
+    toc: true
+    toc_float: true
+    toc_collapsed: false
+---
+
+# Readme
+
+```{r, message=FALSE, warning=FALSE}
+require(kableExtra)
+require(gt)
+require(gtsummary)
+require(tidyverse)
+require(adegenet)
+require(knitr)
+require(magrittr)
+```
+
+This is document is an R notebook. If you'd like view to pre-rendered figures, read a summary of analysis and interact with code, please open the relevant html file in a browser. 
+
+
+To conduct a similar analyses on your computer, edit or run code: clone this repository into a directory on your local machine and open the .Rproj file in Rstudio.
+
+The project repository is [archived at github](https://github.com/david-dayan/coastal_chinook_2020_analysis)
+
+# Rationale 
+
+- Subset the Oregon Coast Chinook Dataset to briefly examine differentiation between North and South Umpqua spring run Chinook Salmon
+ 
+
+# Data 
+
+__Data Sources__  
+Raw data included 1186 individuals from 11 river basins genotyped using the SFGL Ots353 GTseq Panel. After filtering, 977 individuals genotyped at 324 markers remained.
+
+The full genotyping and filtering log is available in the project repository, [here](https://github.com/david-dayan/coastal_chinook_2020_analysis/blob/main/project_genotyping/2020_OC_Chinook_Genotyping_Notebook.html) 
+
+
+__Import Data__  
+```{r, message=FALSE, warning=FALSE}
+#import filtered genotype data
+load("../project_genotyping/filtered_genotype_data/genind_2.0.R")
+load("../project_genotyping/filtered_genotype_data/genos_2.2.R")
+
+meta_data <- readxl::read_xlsx("../metadata/consolidated_metadata/combined_run_info.xlsx", sheet = 5)
+```
+
+
+## Data Summary
+
+Let's filter the dataset to only include Umpqua spring Chinook salmon.
+
+First, we'll summarise what was sampled (not filtered)
+```{r}
+kable(meta_data %>% 
+        mutate(carcass = case_when(str_detect(Sample, "OtsCC") ~ "carcass",
+                                   TRUE ~ "live")) %>%
+        mutate(location = str_to_lower(location)) %>%
+        filter(Population %in% c("NUMP", "SUMP", "UMPR"), run == "Spring") %>% 
+        count(Population, stream, carcass, location), caption = "Umpqua River sample sizes in the before genotype quality filtering") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+
+Now let's summarize the data after filtering
+```{r}
+kable(genos_2.2 %>% 
+        mutate(carcass = case_when(str_detect(sample, "OtsCC") ~ "carcass",
+                                   TRUE ~ "live")) %>%
+        mutate(location = str_to_lower(location)) %>%
+        filter(Population %in% c("NUMP", "SUMP"), run == "Spring") %>% 
+        count(Population, stream, carcass, location, origin), caption = "Sample sizes after filtering") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+```
+
+Also, let's provide a simple, top level summary.
+
+```{r}
+kable(genos_2.2 %>% 
+        mutate(carcass = case_when(str_detect(sample, "OtsCC") ~ "carcass",
+                                   TRUE ~ "live")) %>%
+        mutate(location = str_to_lower(location)) %>%
+        filter(Population %in% c("NUMP", "SUMP"), run == "Spring") %>% 
+        count(stream), caption = "Sample sizes after filtering") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+
+#let's get just the samples we need
+umpr_genos <- genos_2.2 %>%
+  filter(Population %in% c("NUMP", "SUMP"), run == "Spring")
+
+umpr_inds <- umpr_genos %>% 
+  pull(sample)
+genind_umpr <- genind_2.0[umpr_inds]
+```
+
+
+# PCA
+
+## PCA (all samples)
+
+As a first step let's conduct a PCA.
+
+```{r, message = FALSE, warning = FALSE}
+# first scale an center dataet and impute missing data to meanallele frequency
+X <- scaleGen(genind_umpr,  NA.method="mean")
+#then run pca, keep all PCs
+pca1 <- dudi.pca(X, scale = FALSE, scannf = FALSE, nf = 123)
+
+snp_pcs <- pca1$li#[,c(1:kg)]
+
+#now plot data
+snp_pcs %<>%
+  rownames_to_column(var="sample") %>%
+  left_join(umpr_genos)
+
+ggplot(data = snp_pcs)+geom_point(aes(Axis1, Axis2, color = Population), alpha = 0.5) +theme_classic()
+ggplot(data = snp_pcs)+geom_point(aes(Axis2, Axis3, color = Population), alpha = 0.5) +theme_classic()
+ggplot(data = snp_pcs)+geom_point(aes(Axis4, Axis5, color = Population), alpha = 0.5) +theme_classic()
+
+# let's get rid of 
+plotly::plot_ly(x=snp_pcs$Axis1, y=snp_pcs$Axis2, z=snp_pcs$Axis3, type="scatter3d", mode="markers", color=snp_pcs$Population, alpha = 0.8)
+
+eigs <- as.data.frame(pca1$eig)
+
+eigs %<>%
+  rowid_to_column()
+
+ggplot(data = eigs)+geom_bar(aes(rowid, `pca1$eig`), stat = "identity", position = "dodge")+theme_classic()+xlab("PCA axis")+ylab("eigenvalue")+ggtitle("Screeplot")
+```
+
+It looks like we have a few outlier individuals driving most of the variation along the primary axes. This can occur when there is little structure to the data and the PCA starts grabbing noise, however because this is a dataset with substantial LD, rare alleles in gene regions overrepresented in our dataset (e.g. Greb1L-Rock1 region) might produce a similar pattern. Let's look more closely at the outliers to see if this is the case.
+
+Since we know from a previous analysis which Greb1L-Rock1 region markers are in strong LD and which alleles are associated with spring or fall migration timing, we can quickly check if this is the case
+
+Below we count the number of spring (TT), fall (AA), or heterozygous (TA) genotypes at marker Ots28_110073668 at both outlier and non-outlier samples
+```{r}
+outlier_inds <- snp_pcs %>%
+  filter(Axis1 > 5 | Axis2 > 10) %>%
+  pull(sample)
+
+umpr_genos %<>%
+  mutate(outlier = case_when(sample %in% outlier_inds ~ "outlier",
+                             TRUE ~ "not_outlier"))
+
+umpr_genos %>%
+  count(Ots28_11073668, outlier )
+```
+
+There are three individuals that have heterozygous genotypes at the Greb1L-Rock1 region and all three are outliers, but this can't fully explain the outlier pattern because there are 7 total outliers.
+
+Let's go further. What markers are driving the first two axes.
+
+```{r}
+kable(pca1$c1 %>%
+  select(CS1) %>%
+  slice_max(CS1, n = 40), caption = "top 20 markers loading on PCA axis 1") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  scroll_box(width = "500px", height = "200px")
+
+kable(pca1$c1 %>%
+  select(CS2) %>%
+  slice_max(CS2, n = 40), caption = "top 20 markers loading on PCA axis 2") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  scroll_box(width = "500px", height = "200px")
+```
+
+Okay, we can see that axis 1 outliers are driven by the Greb1L-Rock1 region markers, but axis 2 outliers are driven by a unrelated set of markers.
+
+In any case, let's remove the outliers and conduct a PCA again.
+
+## Outlier Metadata
+
+The table below collects the metadata for the 7 outlier individuals.
+
+```{r}
+kable(genos_2.2 %>%
+  filter(sample %in% outlier_inds) %>% 
+  mutate(carcass = case_when(str_detect(sample, "OtsCC") ~ "carcass",
+                                   TRUE ~ "live")) %>%
+    mutate(location = str_to_lower(location)) %>%
+  select(sample, carcass, date, Population, location, run, sex, meps, fl, origin) %>%
+  arrange(Population, location), caption = "Metadata for Outlier Individuals") %>%
+  kable_classic(full_width = T, html_font = "Cambria") %>%
+  scroll_box(width = "900px", height = "200px")
+```
+
+
+## PCA (exclude outliers)
+
+
+```{r, message = FALSE, warning = FALSE}
+# first scale an center dataet and impute missing data to meanallele frequency
+non_outliers <- umpr_genos$sample[!(umpr_genos$sample %in% outlier_inds)]
+
+X2 <- scaleGen(genind_umpr[non_outliers],  NA.method="mean")
+#then run pca, keep all PCs
+pca2 <- dudi.pca(X2, scale = FALSE, scannf = FALSE, nf = 123)
+
+snp_pcs <- pca2$li#[,c(1:kg)]
+
+#now plot data
+snp_pcs %<>%
+  rownames_to_column(var="sample") %>%
+  left_join(umpr_genos)
+
+ggplot(data = snp_pcs)+geom_point(aes(Axis1, Axis2, color = Population), alpha = 0.5) +theme_classic()
+ggplot(data = snp_pcs)+geom_point(aes(Axis2, Axis3, color = Population), alpha = 0.5) +theme_classic()
+ggplot(data = snp_pcs)+geom_point(aes(Axis4, Axis5, color = Population), alpha = 0.5) +theme_classic()
+
+# let's get rid of 
+plotly::plot_ly(x=snp_pcs$Axis1, y=snp_pcs$Axis2, z=snp_pcs$Axis3, type="scatter3d", mode="markers", color=snp_pcs$Population, alpha = 0.8)
+
+eigs <- as.data.frame(pca2$eig)
+
+eigs %<>%
+  rowid_to_column()
+
+ggplot(data = eigs)+geom_bar(aes(rowid, `pca2$eig`), stat = "identity", position = "dodge")+theme_classic()+xlab("PCA axis")+ylab("eigenvalue")+ggtitle("Screeplot")
+```
+
+## PCA Summary
+
+No, I don't suspect there is any substantial structure in the data from PCA results. There is substantial overlap in PC space between our samples of North and South Umpqua spring Chinook salmon. 
+
+# FST
+
+Let's estimate the level of differentiation using FST. We will estimate some basic F statistics using hierfstat and also the pairwise Fst using the Weir and Cockerham. (Note 1 that we left the outlier individuals in the dataset for these estimates) (Note 2 that this is a simple calculation of Fstatistics, dataset wide that is unlikely to be reflective of genome-wide neutral varaition becuase of LD and the bias in our panel towards ESTs and adaptive genetic variation)
+
+First some basic F stats
+```{r}
+require(hierfstat)
+fstat <- genind2hierfstat(genind_umpr)
+colnames(fstat) <- c(pop, names(genind_umpr$loc.n.all))
+
+#calculate datset wide basic stats
+basicstats <- basic.stats(fstat)
+
+kable(basicstats$overall, caption = "Full Dataset Fstats")
+```
+
+Now pairwise FST using Weir and Cockerham
+
+```{r}
+genet.dist(fstat, method="WC84")
+```
+
+## Summary
+
+As suspected from the PCA results, differentiation between our sample North and South Umpqua River spring run Chinook salmon is low at 0.008. 
+
+# Conclusion
+
+Overall FST was low (0.008),and PCA did not reveal any clear structure to the data. This suggests there are no strong genetic differences between our samples of North and South Umpqua River spring run Chinook salmon. 
+
+Importantly, our GT-seq panel only provides a small snapshot of the genetic variation within and among these groups and other potentially ecologically relevant genetic differences between these groups may still exist.

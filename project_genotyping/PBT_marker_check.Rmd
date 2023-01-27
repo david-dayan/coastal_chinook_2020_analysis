@@ -1,0 +1,98 @@
+---
+title: "PBT marker diversity"
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged
+    toc: yes
+    toc_collapsed: no
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+
+```{r, message=FALSE, warning=FALSE}
+require(tidyverse)
+require(magrittr)
+require(adegenet)
+```
+
+
+# Summary
+
+(1) Examine heterozygosity at PBT markers in panel for OC Chinook data.  
+(2) Compare to diversity in target population (interior columbia river)
+
+# Data
+
+Let's use the fully filtered OC Chinook dataset (977 individuals at 324 markers).
+
+```{r, message=FALSE, warning=FALSE}
+load("~/FRA/coastal_chinook/coastal_chinook_2020_analysis/project_genotyping/filtered_genotype_data/genind_2.0.R")
+panel_info <- readxl::read_xlsx("~/FRA/GT-Seq_SOP/GT-seq/Panel_info/Ots Loci Information. BPA. IDT. PROBEseq 1Feb2021.xlsx", sheet = 2)
+load("~/FRA/coastal_chinook/coastal_chinook_2020_analysis/project_genotyping/filtered_genotype_data/genos_2.2.R")
+
+```
+
+# PBT Marker Filtering
+
+How many PBT markers are in the dataset?
+
+```{r, message=FALSE, warning=FALSE}
+PBT_marker_names <- panel_info %>%
+  filter(`Panel Origin` == "PBT") %>%
+  pull(Assay)
+
+sum(PBT_marker_names %in% colnames(genos_2.2))
+```
+
+89 of of the 94/95 PBT markers in the panel are in our dataset. 
+
+# PBT Marker Diversity
+
+```{r, message=FALSE, warning=FALSE}
+# First calcuate HE
+hexp <- summary(genind_2.0)$Hexp
+  
+#convert to df and label SNPs
+hexp <- as.data.frame(hexp) %>%
+  rownames_to_column(var="marker") 
+
+#label PBT markers
+hexp %<>%
+  mutate(PBT = case_when(marker %in% PBT_marker_names ~ "PBT", 
+                         TRUE ~ "notPBT"))
+
+```
+
+Now let's examine marker diversity. We'll plot genetic diversity (He) at the 89 PBT marekrs in the dataset and compare it to the rest of the markers ("nonPBT")
+
+```{r, message=FALSE, warning=FALSE}
+ggplot(data = hexp)+geom_boxplot(aes(y = hexp, color = PBT))+theme_classic()
+
+```
+
+I don't think the boxplots are telling the full story here. Let's make a violin plot for both PBT and nonPBT markers and also a histogram of just PBT markers.
+
+```{r}
+ggplot(data = hexp)+geom_violin(aes(y = hexp, x= PBT))+theme_classic()
+
+ggplot(data = filter(hexp, PBT == "PBT"))+geom_histogram(aes(x = hexp))+theme_classic()
+```
+
+A handful of markers likely don't work as well as designed, but overall diversity is high.
+
+# Compare to Columbia
+
+I wasn't able to find a dataset with the SNP level observed heterozygosity (He) in Columbia River for the PBT markers in the few minutes I looked, but I did find mean He for a subset of 54 of them developed into microhaplotypes for PBT on the Snake River. The mean HE was 0.244. Our mean He is: 0.343.
+
+```{r}
+hexp %>%
+  filter(PBT == "PBT") %>%
+  summarise(mean_he = mean(hexp))
+```
+
+
+# Conclusion  
+
+PBT markers have very high diversity in OC Chinook. I'm unsure if this is comparable to designed level of diversity, but it is probably not less than the level in snake river populations. Given that we have 238 additional SNPs and diversity is high at many of these SNPS, I feel pretty good about using the panel for PBT in OC Chinook.
